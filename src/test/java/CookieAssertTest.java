@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Test;
 
 import java.util.Map;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class CookieAssertTest {
@@ -17,7 +18,7 @@ public class CookieAssertTest {
         Map<String,String> responseCookies = responseWithCookie.getCookies();
 
         assertTrue(responseCookies.containsKey("HomeWork"), "Response doesn't contain 'HomeWork' cookie");
-        assertTrue(responseCookies.containsValue("hw_value"), "Response cookie doesn't contain 'hw_value'");
+        assertEquals("hw_value", responseCookies.get("HomeWork"), "Response cookie doesn't contain 'hw_value'");
 
     }
 }
